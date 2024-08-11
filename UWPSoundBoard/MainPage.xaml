@@ -30,5 +30,36 @@
                     />
         </RelativePanel>
 
+        <SplitView Grid.Row="1"
+                   Name="ContentSplitView"
+                   DisplayMode="CompactOverlay"
+                   CompactPaneLength="45"
+                   OpenPaneLength="200">
+            <SplitView.Pane>
+                <ListView Name="MenuItemsListView"
+                          IsItemClickEnabled="True">
+                    
+                </ListView>
+                          
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid x:Name="ContentGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="CategoryTextBlock"
+                               Text="All Sounds"
+                               FontSize="24" />
+                    <GridView Grid.Row="1"
+                              Name="SoundGridView"
+                              IsItemClickEnabled="True">
+                        
+                    </GridView>
+                </Grid>
+            </SplitView.Content>
+            
+        </SplitView>
+
     </Grid>
 </Page>
