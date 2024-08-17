@@ -1,14 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UWPSoundBoard.Model
 {
-	public class SoundManager
+	public static class SoundManager
 	{
-		private List<Sound> getSounds()
+		public static void GetAllSounds(ObservableCollection<Sound> sounds)
+		{
+			var allSounds = getSounds();
+			sounds.Clear();
+			allSounds.ForEach(sound => sounds.Add(sound));
+		}
+
+		private static List<Sound> getSounds()
 		{
 			return new List<Sound>
 			{
