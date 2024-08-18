@@ -29,6 +29,7 @@
                     Content="&#xE0A6;"
                     Height="45"
                     Width="45"
+                    Click="BackButton_Click"
                     />
         </RelativePanel>
 
@@ -41,6 +42,7 @@
                 <ListView Name="MenuItemsListView"
                           IsItemClickEnabled="True"
                           ItemsSource="{x:Bind menuItems}"
+                          ItemClick="MenuItemsListView_ItemClick"
                           >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="data:MenuItem">
@@ -55,7 +57,7 @@
                           
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid x:Name="ContentGrid">
+                <Grid x:Name="ContentGrid" Margin="20,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -67,6 +69,7 @@
                               Name="SoundGridView"
                               IsItemClickEnabled="True"
                               ItemsSource="{x:Bind sounds}"
+                              ItemClick="SoundGridView_ItemClick"
                               >
                         <GridView.ItemTemplate>
                             <DataTemplate x:DataType="data:Sound">
@@ -75,6 +78,7 @@
                             </DataTemplate>
                         </GridView.ItemTemplate>
                     </GridView>
+                    <MediaElement Name="SoundMedia" AutoPlay="True" />
                 </Grid>
             </SplitView.Content>
             
